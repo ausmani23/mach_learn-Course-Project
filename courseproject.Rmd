@@ -75,13 +75,14 @@ print(feedback(fit_pml.rpart)[[2]]) #'feedback' is custom function (see auxiliar
 
 The `rpart` method has woeful accuracy. But, as I said, it generates a fairly clear list of the most important predictors. In theory, this need not match the ideal set of predictors for a Random Forest model. But I assumed that there would not be too large a mismatch, which seems to have been vindicated by the estimated accuracy I obtained through this method. 
 
-```{r,results='hold',message=FALSE,warning=FALSE}
+```{r,results='asis',message=FALSE,warning=FALSE}
 #pick vars with importance rating from the rpart model
 importantvars.rpart<-feedback(fit_pml.rpart)[[1]]$importance 
 importantvars.rpart$var<-row.names(importantvars.rpart)
 
 #pick only those vars with non-zero importance scores
 rfvars<-importantvars.rpart$var[importantvars.rpart$Overall>0] 
+print(rfvars)
 
 #use these vars in a random forest model
 fit_pml.rf5<-train(data=pmltrain_train,makeformula(rfvars),method="rf",trControl=fivefold)
