@@ -121,14 +121,15 @@ importantvars.rpart$var&lt;-row.names(importantvars.rpart)
 
 #pick only those vars with non-zero importance scores
 rfvars&lt;-importantvars.rpart$var[importantvars.rpart$Overall&gt;0] 
-
-#use these vars in a random forest model
+print(rfvars)</code></pre>
+<p>[1] “accel_arm_x” “accel_belt_z” “accel_dumbbell_y” [4] “magnet_arm_x” “magnet_belt_y” “magnet_dumbbell_y” [7] “magnet_dumbbell_z” “num_window” “pitch_forearm”<br />[10] “roll_belt” “roll_forearm” “total_accel_belt” [13] “yaw_belt”</p>
+<pre class="r"><code>#use these vars in a random forest model
 fit_pml.rf5&lt;-train(data=pmltrain_train,makeformula(rfvars),method=&quot;rf&quot;,trControl=fivefold)
 
 #how did 'RF' do?
 print(feedback(fit_pml.rf5)[[2]]) </code></pre>
-<pre><code>##      Accuracy AccuracyLower AccuracyUpper 
-##     0.9919810     0.9904044     0.9933581</code></pre>
+<pre><code> Accuracy AccuracyLower AccuracyUpper 
+0.9919810     0.9904044     0.9933581 </code></pre>
 </div>
 <div id="how-many-folds-does-it-take" class="section level1">
 <h1>How Many Folds Does It Take?</h1>
