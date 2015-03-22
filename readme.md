@@ -6,6 +6,10 @@ This repo contains my submission for the JHU/Coursera Course in Practical Machin
 
 ***
 
+You can view my submission through the gh-pages branch of this repo. Click [here](http://ausmani23.github.io/mach_learn-Course-Project/index.html)
+
+***
+
 **courseproject.Rmd:** is the RMarkdown file which, when compiled, produces courseproject.html
 
 **courseproject.html:** is the .html file which displays my submission. 

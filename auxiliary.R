@@ -1,6 +1,6 @@
 ##################################################
 #this file does some of the preliminary work
-#of the .Rmd file, like setting the directory, 
+#of the .Rmd file:
 #defining some helper functions, loading the data,
 #loading packages, what have you
 ##################################################
